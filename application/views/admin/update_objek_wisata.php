@@ -102,10 +102,7 @@
                   <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
-                      
-
-
-                    <form class="form-horizontal" action="" method="post">
+                    <form class="form-horizontal" action="<?= site_url('admin/update_objek_wisata/').$id ?>" method="post">
                         <div class="card-body">
                             <div class="form-group row">
                             <label
@@ -201,14 +198,65 @@
                                   <?php } ?>
                                 </select>
                             </div>
-                            </div>
-                            
-                            
+                            </div>                          
                         </div>
-                        <div class="border-top">
+                    <!-- your data -->
+                    </div>
+                    
+                    <!-- column -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-md-flex align-items-center">
+                    <div>
+                      <h4 class="card-title">Form Pembobotan</h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                    <?php
+                        $col = array();
+                        $col['penginapan'] = array('tidak ada', 'tersedia');
+                        $col['biaya'] = array('murah', 'sedang', 'mahal');
+                        $col['tempat_ibadah'] = array('tidak ada', 'tersedia');
+                        $col['warung'] = array('tidak ada', 'tersedia');
+                        $col['souvenir'] = array('tidak ada', 'tersedia');
+                        $col['toilet'] = array('tidak ada', 'tersedia');
+                        $col['permainan'] = array('tidak ada', 'tersedia');
+                        $col['tempat_makan'] = array('tidak ada', 'tersedia');
+                        $col['tempat_parkir'] = array('tidak ada', 'tersedia');
+                    ?>
+                        <form class="form-horizontal" action="<?= site_url('admin/update_detail/') ?>" method="post">
+                            <input type="text" name="id_objek_wisata" value="" hidden="hidden">
+                            <input type="text" name="id" value="" hidden="hidden">
                             <div class="card-body">
-                            <button type="submit" name="submit" value="submit" class="btn btn-primary">
-                                Submit
+                                <?php foreach($col as $key => $value){ ?>
+                                <div class="form-group row">
+                                    <label
+                                        for="fname"
+                                        class="col-sm-3 text-end control-label col-form-label"
+                                        ><?= $key ?></label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="<?= $key ?>">
+                                            <?php for($i=0;$i<count($value);$i++){ ?>
+                                                <option value="<?= $i ?>" <?= $detail->$key==$i?'selected="selected"':'' ?>><?= $value[$i] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>    
+                                </div>
+                                <?php } ?>                        
+                            </div>
+                        <div class="float-end">
+                            <div class="card-body">
+                            <button type="submit" name="submit" value="submit" class="btn btn-lg btn-primary">
+                                <?= $detail==null?'Tambahkan':'Rubah' ?>
                             </button>
                             </div>
                         </div>

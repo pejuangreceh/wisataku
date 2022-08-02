@@ -102,10 +102,11 @@
                   <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
-                      
+                      <!-- ID terakhir dari objek lokasi -->
+                      <!-- <label for=""><?php echo $last_id->id+1; ?></label> -->
 
-
-                    <form class="form-horizontal" action="" method="post">
+                    <form class="form-horizontal" action="<?= site_url('admin/insert_objek_wisata') ?>" method="post">
+                    <input class="form-control" name="id" type="text" value="<?php echo $last_id->id+1; ?>" >
                         <div class="card-body">
                             <div class="form-group row">
                             <label
@@ -119,6 +120,7 @@
                                 type="text"
                                 class="form-control"
                                 id="fname"
+                                required
                                 />
                             </div>
                             </div>
@@ -134,6 +136,7 @@
                                 type="text"
                                 class="form-control"
                                 id="lname"
+                                required
                                 />
                             </div>
                             </div>
@@ -149,6 +152,7 @@
                                 type="text"
                                 class="form-control"
                                 id="inKoordinat"
+                                required
                                 readonly
                                 />
                             </div>
@@ -179,12 +183,10 @@
                                 type="text"
                                 class="form-control"
                                 id="email1"
-
+                                required
                                 />
                             </div>
                             </div>
-
-
                             <div class="form-group row">
                             <label
                                 for="email1"
@@ -192,17 +194,68 @@
                                 >Kategori</label
                             >
                             <div class="col-sm-9">
-                                <select class="form-control" name="id_kategori">
+                                <select class="form-control" name="id_kategori" required>
                                   <?php foreach($kategori as $kat){ ?>
                                     <option value="<?= $kat->id ?>"><?= $kat->nama_kategori ?></option>
                                   <?php } ?>
                                 </select>
                             </div>
+                            </div>  
+                        </div>                    
+                    <!-- your data -->
+                    </div>
+                    
+                    <!-- column -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-md-flex align-items-center">
+                    <div>
+                      <h4 class="card-title">Form Pembobotan</h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                    <?php
+                        $col = array();
+                        $col['penginapan'] = array('tidak ada', 'tersedia');
+                        $col['biaya'] = array('murah', 'sedang', 'mahal');
+                        $col['tempat_ibadah'] = array('tidak ada', 'tersedia');
+                        $col['warung'] = array('tidak ada', 'tersedia');
+                        $col['souvenir'] = array('tidak ada', 'tersedia');
+                        $col['toilet'] = array('tidak ada', 'tersedia');
+                        $col['permainan'] = array('tidak ada', 'tersedia');
+                        $col['tempat_makan'] = array('tidak ada', 'tersedia');
+                        $col['tempat_parkir'] = array('tidak ada', 'tersedia');
+                    ?>
+                            <input type="text" name="id_objek_wisata" value="" hidden="hidden">
+                            <div class="card-body">
+                                <?php foreach($col as $key => $value){ ?>
+                                <div class="form-group row">
+                                    <label
+                                        for="fname"
+                                        class="col-sm-3 text-end control-label col-form-label"
+                                        ><?= $key ?></label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="<?= $key ?>">
+                                            <?php for($i=0;$i<count($value);$i++){ ?>
+                                                <option value="<?= $i ?>"><?= $value[$i] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>    
+                                </div>
+                                <?php } ?>                        
                             </div>
-                            
-                            
-                        </div>
-                        <div class="float-end">
+                            <input type="text" name="id_objek_wisata" value="" hidden="hidden">
+                            <input type="text" name="id" value="" hidden="hidden">
+                            <div class="float-end">
                             <div class="card-body">
                             <button type="submit" name="submit" value="submit" class="btn btn-lg btn-primary">
                                 Submit
@@ -210,10 +263,6 @@
                             </div>
                         </div>
                     </form>
-
-
-
-
                     <!-- your data -->
                     </div>
                     

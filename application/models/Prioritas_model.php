@@ -8,22 +8,22 @@ class Prioritas_model extends CI_Model{
         $query = $this->db->get($this->_table);
         return $query->result();
     }
-    public function update($data)
+    public function update($id,$data)
     {
-        if(!isset($data['id'])){
-            return;
-        }
-        $tanggal = date('Y-m-d');
-        return $this->db->update($this->_table, $data, ['id'=>$data['id'], 'last_modified'=>$tanggal]);
+        // if(!isset($data['id'])){
+        //     return;
+        // }
+        $this->db->where('id', $id);
+        return $this->db->update('tbprioritas', $data);
     }
-    public function update_id_kategori($data)
+    public function update_id_kategori($id,$data)
     {
-        if(!isset($data['id_jenis'])){
-            return;
-        }
-        $tanggal = date('Y-m-d');
-        return $this->db->update($this->_table, $data, ['id_jenis'=>$data['id_jenis'], 'last_modified'=>$tanggal]);
-    }
+        // if(!isset($data['id'])){
+        //     return 1;
+        // }
+        $this->db->where('id', $id);
+        return $this->db->update('tbkategori', $data);
+    }   
     public function delete($id=null)
     {
         if(!$id){

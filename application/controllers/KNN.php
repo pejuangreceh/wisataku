@@ -1,6 +1,6 @@
 <?php
 class KNN extends CI_Controller{
-    private $kValue = 5;
+    private $kValue = 3;
     public function index()
     {
         

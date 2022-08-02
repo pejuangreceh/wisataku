@@ -106,6 +106,15 @@
 
                     <form class="form-horizontal" action="" method="post">
                         <div class="card-body">
+                          <?php 
+                              $pesan = validation_errors();
+                              if(!empty($pesan))
+                              {
+                              ?>
+                            <div class="alert alert-danger">
+                            <?php echo $pesan; ?>
+                              </div>
+                              <?php }?>
                             <div class="form-group row">
                             <label
                                 for="fname"
@@ -118,6 +127,7 @@
                                 type="text"
                                 class="form-control"
                                 id="fname"
+                                required
                                 />
                             </div>                            
                         </div>

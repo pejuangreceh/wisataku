@@ -104,7 +104,7 @@
                       
 
 
-                    <form class="form-horizontal" action="" method="post">
+                    <form class="form-horizontal" action="<?= site_url('admin/update_prioritas/'.$id )?>" method="post">
                         <div class="card-body">
                             <div class="form-group row">
                             <label
@@ -159,6 +159,34 @@
                                 />
                             </div>
                             </div> 
+                            <div class="form-group row">
+                              <label
+                              for="fname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >
+                            </label>
+                              <div class="col-sm-9">*
+                              Nilai 1 = 1 (Bukan Prioritas)
+                            </div>
+                            </div><div class="form-group row">
+                              <label
+                              for="fname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >
+                            </label>
+                              <div class="col-sm-9">*
+                              Nilai 2 = 3 (Prioritas Sedang)
+                            </div>
+                            </div><div class="form-group row">
+                              <label
+                              for="fname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >
+                            </label>
+                              <div class="col-sm-9">*
+                              Nilai 3 = 5 (Prioritas Utama)
+                            </div>
+                            </div>
                         </div>
                         <div class="border-top">
                             <div class="card-body">

@@ -143,7 +143,14 @@
                               <tr>
                                 <td><?= $prior->jenis_prioritas ?></td>
                                 <td><?= $prior->keterangan ?></td>
-                                <td><?= $prior->nilai ?></td>
+                                <td><?php if($prior->nilai == 1 ){
+                                  echo 1;
+                                } elseif ($prior->nilai == 2 ) {
+                                  echo 3;
+                                }elseif ($prior->nilai == 3 ) {
+                                  echo 5;
+                                }
+                                ?></td>
                                 <td><?= $prior->created_at ?></td>
                                 <td><?= $prior->last_modified ?></td>
                                 <td>

@@ -161,7 +161,7 @@
                                 <td><?= $wisata->last_modified ?></td>
                                 <td>
                                                           <a href="<?= site_url("admin/update_objek_wisata").'/'.$wisata->id ?>" class="btn btn-success">Update</a>
-                                                          <a href="<?= site_url("admin/pembobotan_objek_wisata").'/'.$wisata->id ?>" class="btn btn-primary">Pembobotan</a>
+                                                          <!-- <a href="<?= site_url("admin/pembobotan_objek_wisata").'/'.$wisata->id ?>" class="btn btn-primary">Pembobotan</a> -->
                                                           <a href="#" 
                                                               data-delete-url="<?= site_url('admin/delete_objek_wisata/'.$wisata->id) ?>" 
                                                               class="btn btn-danger" 

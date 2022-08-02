@@ -16,20 +16,19 @@ class Detail_lokasi_model extends CI_Model{
         return $query->result();
     }
     
-    public function update($data)
+    public function update($id,$data)
     {
-        if(!isset($data['id'])){
-            return;
-        }
-        $tanggal = date('Y-m-d');
-        return $this->db->update($this->_table, $data, ['id'=>$data['id'], 'last_modified'=>$tanggal]);
+        // $tanggal = date('Y-m-d');
+        $this->db->where('id_objek_wisata', $id);
+        $insert_id = $this->db->update('detail_lokasi', $data);
+        return $insert_id;
     }
     public function delete($id=null)
     {
         if(!$id){
             return;
         }
-        return $this->db->delete($this->_table, ['id'=>$id]);
+        return $this->db->delete($this->_table, ['id_objek_wisata'=>$id]);
     }
     public function insert($data)
     {
