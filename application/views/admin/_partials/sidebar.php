@@ -9,6 +9,7 @@
                   ><span class="hide-menu">Dashboard</span></a
                 >
               </li>
+              <?php if ($this->session->userdata('role') == 1) {?>
               <li class="sidebar-item">
                 <a
                   class="sidebar-link has-arrow waves-effect waves-dark"
@@ -50,10 +51,43 @@
                       ><span class="hide-menu"> Paket Wisata </span></a
                     >
                   </li>
-
-
-                  
+                  <!-- <li class="sidebar-item">
+                    <a href="<?= site_url('komentar/') ?>" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu"> Komentar </span></a
+                    >
+                  </li> -->
+ 
                 </ul>
               </li>
+              <?php }else{ ?>
+                
+                  <li class="sidebar-item">
+                    <a href="<?= site_url('admin/master_objek_wisata') ?>" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu"> Objek Wisata </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="<?= site_url('knn/') ?>" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu"> KNN </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="<?= site_url('paket/') ?>" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu"> Paket Wisata </span></a
+                    >
+                  </li>
+                  <!-- <li class="sidebar-item">
+                    <a href="<?= site_url('komentar/') ?>" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu"> Komentar </span></a
+                    >
+                  </li> -->
+ 
+                
+              <?php } ?>
             </ul>
           </nav>

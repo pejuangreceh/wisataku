@@ -70,9 +70,18 @@
             <form
               class="form-horizontal mt-3"
               id="loginform"
-              action=""
+              action="<?= site_url("auth/login") ?>"
               method="post"
             >
+            <?php 
+                              $pesan = validation_errors();
+                              if(!empty($pesan))
+                              {
+                              ?>
+                            <div class="alert alert-danger">
+                            <?php var_dump($pesan); ?>
+                              </div>
+            <?php }?>
               <div class="row pb-4">
                 <div class="col-12">
                   <div class="input-group mb-3">
@@ -102,7 +111,7 @@
                       ></span>
                     </div>
                     <input
-                      type="text"
+                      type="password"
                       name="password"
                       class="form-control form-control-lg"
                       placeholder="Password"
@@ -117,21 +126,19 @@
                 <div class="col-12">
                   <div class="form-group">
                     <div class="pt-3">
-                        <a href="<?= site_url("auth/user") ?>">
+                        <a href="<?= site_url("auth/register") ?>">
                     <button
                         class="btn btn-info"
-                        id="to-recover"
                         type="button"
-                      >
-                        <i class="mdi mdi-lock fs-4 me-1"></i> Akses Sebagai User
+                      > Daftar
                       </button>
-    </a>
+                        </a>
                       </button>
                       <button
                         class="btn btn-success float-end text-white"
                         type="submit"
                       >
-                        Login Admin
+                        Login
                       </button>
                     </div>
                   </div>

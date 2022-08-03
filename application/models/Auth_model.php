@@ -37,6 +37,12 @@
     
             return $this->session->has_userdata(self::SESSION_KEY);
         }
+        public function login_user($username, $password){
+            $this->db->where('username', $username);
+            $this->db->where('password', $password);
+            $query = $this->db->get('tbadmin');
+            return $query->result_array();
+        }
 
         public function loginUser()
         {
@@ -57,11 +63,16 @@
             $query = $this->db->get_where($this->table, ['id' => $user_id]);
             return $query->row();
         }
+        
     
         public function logout()
         {
             $this->session->unset_userdata(self::SESSION_KEY);
             return !$this->session->has_userdata(self::SESSION_KEY);
+        }
+        public function insert($data)
+        {
+            return $this->db->insert('tbadmin', $data);
         }
     }
 ?>

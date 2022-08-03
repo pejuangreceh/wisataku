@@ -122,7 +122,7 @@
                     </li>
                     <?php $no+= 1; } ?>
                     </ol>
-                    <a href="<?= site_url('knn/paket') ?>"><button class="btn btn-success btn-lg">Pilih Paket</button></a>
+                    <a href="<?= site_url('paket') ?>"><button class="btn btn-success btn-lg">Pilih Paket</button></a>
                     </div>
 
                     <script>

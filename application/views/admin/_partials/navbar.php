@@ -103,7 +103,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  user
+                <?php echo $this->session->userdata('name'); ?>
                 </a>
                 <ul
                   class="dropdown-menu dropdown-menu-end user-dd animated"

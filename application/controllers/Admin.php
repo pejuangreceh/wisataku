@@ -7,13 +7,14 @@ class Admin extends CI_Controller{
         $this->load->model('detail_lokasi_model');
 		$this->load->model('objek_wisata_model');
 		$this->load->model('kategori_model');
-		if(!$this->auth_model->current_user()){
+		if (!($this->session->userdata('username'))) {
 			redirect('auth/login');
 		}
 	}
     public function index()
     {
-        $this->load->view('admin/dashboard.php');
+		$this->load->view('admin/dashboard.php');
+		// var_dump($this->session->userdata('name'));
     }
 
 
@@ -303,7 +304,11 @@ class Admin extends CI_Controller{
 				'id_kategori' => $this->input->post('id_kategori'),
                 
 			];
-			$this->db->query("ALTER TABLE objek_wisata AUTO_INCREMENT = $last_id->id");
+			if($last_id->id != NULL){
+				$this->db->query("ALTER TABLE objek_wisata AUTO_INCREMENT = $last_id->id");
+			}else{
+				$this->db->query("ALTER TABLE objek_wisata AUTO_INCREMENT = 1");
+			}
 			$saved = $this->objek_wisata_model->insert($jenis);
 			$jenis_pembobotan = [
 				//'id' => $id,

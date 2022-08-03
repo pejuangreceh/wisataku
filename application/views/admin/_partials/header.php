@@ -11,7 +11,7 @@
       content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
     />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>Wisataku</title>
     <!-- Favicon icon -->
     <link
       rel="icon"
@@ -24,6 +24,12 @@
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/dist/css/style.min.css') ?>" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/assets/libs/select2/dist/css/select2.min.css') ?>"/>
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/assets/libs/jquery-minicolors/jquery.minicolors.css') ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/assets/libs/quill/dist/quill.snow.css') ?>"/>
+ 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

@@ -77,7 +77,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-body">
-                <?php if($isUser!==true){?>
+                <?php if ($this->session->userdata('role') == 1) {?>
                 <a href="<?= site_url('admin/insert_objek_wisata"') ?>" class="btn btn-primary float-end">+ Tambah Objek Wisata</a>
                 <?php } ?>
                   <div class="d-md-flex align-items-center">
@@ -89,49 +89,6 @@
                   <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
-
-                    <?php if($isUser===true){?>
-                      <div class="table-responsive">
-                        <table
-                          id="zero_config"
-                          class="table table-striped table-bordered"
-                        >
-                          <thead>
-                            <tr>
-                              <th>Nama Tempat</th>
-                              <th>Alamat</th>
-                              <th>Koordinat</th>
-                              <th>Deskripsi</th>
-                              <th>Kategori</th>
-                              
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php foreach($objek_wisata as $wisata){ ?>
-                              <tr>
-                                <td><?= $wisata->nama_tempat ?></td>
-                                <td><?= $wisata->alamat ?></td>
-                                <td><a href="<?= site_url('admin/show_coordinate/').$wisata->id ?>"><?= $wisata->koordinat ?></a></td>
-                                <td><?= $wisata->deskripsi ?></td>
-                                <td><?= $wisata->nama_kategori ?></td>
-                                
-                              </tr>
-                            <?php } ?>
-                          </tbody>
-                          <tfoot>
-                            <tr>
-                            <th>Nama Tempat</th>
-                              <th>Alamat</th>
-                              <th>Koordinat</th>
-                              <th>Deskripsi</th>
-                              <th>Kategori</th>
-                              
-                              
-                            </tr>
-                          </tfoot>
-                        </table>
-                      </div>
-                    <?php } else { ?>
                       <div class="table-responsive">
                         <table
                           id="zero_config"
@@ -146,7 +103,9 @@
                               <th>Kategori</th>
                               <th>Created_at</th>
                             <th>Last Modified</th>
+                              <?php if ($this->session->userdata('role') == 1) {?>
                               <th>Tindakan</th>
+                              <?php }?>
                             </tr>
                           </thead>
                           <tbody>
@@ -159,6 +118,7 @@
                                 <td><?= $wisata->nama_kategori ?></td>
                                 <td><?= $wisata->created_at ?></td>
                                 <td><?= $wisata->last_modified ?></td>
+                              <?php if ($this->session->userdata('role') == 1) {?>
                                 <td>
                                                           <a href="<?= site_url("admin/update_objek_wisata").'/'.$wisata->id ?>" class="btn btn-success">Update</a>
                                                           <!-- <a href="<?= site_url("admin/pembobotan_objek_wisata").'/'.$wisata->id ?>" class="btn btn-primary">Pembobotan</a> -->
@@ -168,6 +128,8 @@
                                                               role="button"
                                                               onclick="deleteConfirm(this)">Delete</a>
                                                       </td>
+                              <?php }?>
+
                               </tr>
                             <?php } ?>
                           </tbody>
@@ -185,9 +147,6 @@
                           </tfoot>
                         </table>
                       </div>
-                    <?php } ?>
-
-                    
                     </div>
                     
                     <!-- column -->
